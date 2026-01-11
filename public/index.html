@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>복돌갤러리</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="title">복돌갤러리</h1>
+      <div class="subtitle">TEST</div>
+    </header>
+
+    <section class="uploadbar">
+      <label id="dropzone" class="dropzone" for="file">
+        <div class="dz-main">
+          <div class="dz-title">파일 선택 또는 드래그</div>
+          <div class="dz-desc">이미지 파일(PNG/JPG/WEBP/GIF)</div>
+        </div>
+        <input id="file" type="file" accept="image/*" />
+      </label>
+
+      <button id="btnUpload" class="btn primary">업로드</button>
+
+      <div id="msg" class="msg" aria-live="polite"></div>
+    </section>
+
+    <main class="main">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>갤러리</h2>
+        </div>
+        <div id="grid" class="grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>미리보기</h2>
+        </div>
+
+        <div class="viewer">
+          <button id="btnDeletePreview" class="iconbtn danger" title="선택 사진 삭제" style="display:none;">✕</button>
+
+          <div id="viewerEmpty" class="viewer-empty">
+            선택한 사진이 여기 크게 보여요
+          </div>
+
+          <img id="previewImg" alt="선택한 사진" />
+
+          <div id="previewMeta" class="preview-meta" style="display:none;">
+            업로드 날짜: <span id="previewDate"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+     <!-- 삭제 확인 모달 -->
+  <div id="modalBackdrop" class="modal-backdrop" style="display:none;">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div id="modalTitle" class="modal-title">삭제 확인</div>
+      <div id="modalText" class="modal-text">삭제하시겠습니까?</div>
+
+      <div class="modal-actions">
+        <button id="modalNo" class="btn">아니오</button>
+        <button id="modalYes" class="btn danger">예</button>
+      </div>
+    </div>
+  </div>
+<script src="/app.js"></script>
+</body>
+</html>
